@@ -6,4 +6,14 @@
 //
 
 import Foundation
+import RxSwift
 
+protocol NewsServiceType {
+    func getTopHeadline() -> Observable<[TopStoryHeadline]>
+}
+
+final class NewsService: NewsServiceType {
+    func getTopHeadline() -> Observable<[TopStoryHeadline]> {
+        return Observable.never()
+    }
+}

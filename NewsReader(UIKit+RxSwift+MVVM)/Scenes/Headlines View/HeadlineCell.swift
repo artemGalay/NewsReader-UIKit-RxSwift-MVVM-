@@ -61,4 +61,9 @@ final class HeadlineCell: UITableViewCell {
         ])
     }
 
+    func configure(with viewModel: TopStoryHeadline) {
+        titleLabel.text = viewModel.title
+        byLineLabel.text = viewModel.byLine
+        sectionLabel.text = viewModel.section
+    }
 }

@@ -18,6 +18,7 @@
 		D9BA602F298BE0A8001041F3 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D9BA602E298BE0A8001041F3 /* RxSwift */; };
 		D9D387D5299CE5D400709E2B /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D387D4299CE5D400709E2B /* HeadlinesViewController.swift */; };
 		D9D387D7299CE60900709E2B /* HeadlinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D387D6299CE60900709E2B /* HeadlinesViewModel.swift */; };
+		D9D387D9299EBFB500709E2B /* HeadlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D387D8299EBFB500709E2B /* HeadlineCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D9BA601C298BDECA001041F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9D387D4299CE5D400709E2B /* HeadlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewController.swift; sourceTree = "<group>"; };
 		D9D387D6299CE60900709E2B /* HeadlinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewModel.swift; sourceTree = "<group>"; };
+		D9D387D8299EBFB500709E2B /* HeadlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				D9D387D4299CE5D400709E2B /* HeadlinesViewController.swift */,
 				D9D387D6299CE60900709E2B /* HeadlinesViewModel.swift */,
+				D9D387D8299EBFB500709E2B /* HeadlineCell.swift */,
 			);
 			path = "Headlines View";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				D950F782299A5B0600B72B4F /* TopStoryHeadline.swift in Sources */,
 				D9D387D5299CE5D400709E2B /* HeadlinesViewController.swift in Sources */,
+				D9D387D9299EBFB500709E2B /* HeadlineCell.swift in Sources */,
 				D9BA6013298BDEC9001041F3 /* ViewController.swift in Sources */,
 				D9BA600F298BDEC9001041F3 /* AppDelegate.swift in Sources */,
 				D9D387D7299CE60900709E2B /* HeadlinesViewModel.swift in Sources */,

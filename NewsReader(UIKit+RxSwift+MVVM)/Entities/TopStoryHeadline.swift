@@ -14,4 +14,6 @@ struct TopStoryHeadline: Decodable {
 
     let title: String
     let url: String
+    var section: String?
+    var byLine: String?
 }

@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 final class HeadlinesViewController: UIViewController {
 
@@ -15,9 +16,17 @@ final class HeadlinesViewController: UIViewController {
 
     var viewModel: ViewModel
 
+    private let disposeBag = DisposeBag()
+
+    private lazy var dataSource = RxTableViewSectionedAnimatedDataSource<NewsSection> { dataSource, tableView, indexPath, item in
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HeadlineCell.identifier, for: indexPath) as? HeadlineCell else {
+            return UITableViewCell() }
+        cell.configure(with: item)
+        return cell
+    }
+
     private lazy var newsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.register(HeadlineCell.self, forCellReuseIdentifier: HeadlineCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -35,6 +44,7 @@ final class HeadlinesViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupLayout()
+        configureViews()
     }
 
     private func setupHierarchy() {
@@ -49,4 +59,32 @@ final class HeadlinesViewController: UIViewController {
             newsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+}
+
+private extension HeadlinesViewController {
+
+    func configureViews() {
+        configureTableView()
+    }
+
+    func configureTableView() {
+
+        newsTableView.register(HeadlineCell.self, forCellReuseIdentifier: HeadlineCell.identifier)
+
+        newsTableView.rx
+            .itemSelected
+            .subscribe(onNext: { [unowned self] indexPath in
+                newsTableView.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: disposeBag)
+
+        viewModel
+            .headlines
+            .drive(newsTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
+}
+
+extension HeadlinesViewController: UITableViewDelegate {
+
 }
